@@ -18,3 +18,15 @@ export const crearTarea = async (req, res) =>{
         })
     }
 }
+
+export const obtenerListaTareas = async (req, res) =>{
+    try{
+        const tareas = await Tarea.find();
+        res.status(200).json(tareas);
+    }catch(error){
+        console.log(error)
+        res.status(404).json({
+            mensaje: "Error. No se pudo obtener la lista de tareas"
+        })
+    }
+}

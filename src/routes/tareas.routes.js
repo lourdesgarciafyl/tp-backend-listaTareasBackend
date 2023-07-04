@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { controlPrueba, crearTarea } from "../controllers/tareas.controllers";
+import { controlPrueba, crearTarea, obtenerListaTareas } from "../controllers/tareas.controllers";
 
 const router = Router();
 router.route("/prueba").get(controlPrueba)
-router.route("/tareas").post(crearTarea)
+router.route("/tareas").post(crearTarea).get(obtenerListaTareas)
 
 
 export default router;
