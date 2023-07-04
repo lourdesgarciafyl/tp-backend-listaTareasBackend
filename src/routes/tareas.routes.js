@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { crearTarea } from "../controllers/tareas.controllers";
+import { controlPrueba, crearTarea } from "../controllers/tareas.controllers";
 
 const router = Router();
-
+router.route("/prueba").get(controlPrueba)
 router.route("/tareas").post(crearTarea)
 
 

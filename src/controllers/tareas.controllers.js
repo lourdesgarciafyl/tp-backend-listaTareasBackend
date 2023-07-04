@@ -1,6 +1,9 @@
 import { json } from "express";
 import Tarea from "../models/tarea";
 
+export const controlPrueba = (req, res) => {
+    res.send("Esta es una prueba de mi ruta get")
+}
 export const crearTarea = async (req, res) =>{
     try{
         const tareaNueva = new Tarea(req.body);
