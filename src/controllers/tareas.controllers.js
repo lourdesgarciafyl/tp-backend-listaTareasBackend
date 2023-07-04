@@ -30,3 +30,29 @@ export const obtenerListaTareas = async (req, res) =>{
         })
     }
 }
+
+export const obtenerTarea = async (req, res) =>{
+    try{
+        const tarea = await Tarea.findById(req.params.id);
+        res.status(200).json(tarea);
+    }catch(error){
+        console.log(error)
+        res.status(404).json({
+            mensaje: "Error. No se pudo obtener la tarea."
+        })
+    }
+}
+
+export const borrarTarea = async (req, res) =>{
+    try{
+        await Tarea.findByIdAndDelete(req.params.id);
+        res.status(200).json({
+            mensaje: "La tarea se elimino correctamente"
+        })
+    }catch(error){
+        console.log(error);
+        res.status(404).json({
+            mensaje: "Error. No se pudo borrar la tarea."
+        })
+    }
+}
